@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import taskRouter from "./routes/task.js"
 import { errorMiddleWare } from "./middlewares/error.js";
+import cors from "cors";
 
 config({
     path:"./data/.env"
@@ -16,6 +17,7 @@ export const app = express();
 //Middlewares
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors())
 
 //Routes
 app.use("/api/v1/users",userRouter);
