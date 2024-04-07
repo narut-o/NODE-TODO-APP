@@ -10,17 +10,19 @@ config({
     path:"./data/.env"
 })
 
+const corsConfig = {
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }
 
 export const app = express();
-const corsConfig = {
-    credentials:true,
-    origin:true
-}
+
 
 //Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsConfig))
+app.use(cors())
 
 //Routes
 app.use("/api/v1/users",userRouter);
