@@ -11,7 +11,7 @@ config({
 })
 
 const corsConfig = {
-    origin: "http://localhost:5173",
+    origin: "https://node-todo-app-rezz.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }
