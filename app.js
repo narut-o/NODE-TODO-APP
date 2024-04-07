@@ -12,12 +12,15 @@ config({
 
 
 export const app = express();
-
+const corsConfig = {
+    credentials:true,
+    origin:true
+}
 
 //Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors())
+app.use(cors(corsConfig))
 
 //Routes
 app.use("/api/v1/users",userRouter);
